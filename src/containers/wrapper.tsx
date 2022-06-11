@@ -8,12 +8,12 @@ export interface WrapperProps {
 
 const lightTheme = {
   body: '#DEE4E7',
-  text: '#37474F'
+  text: 'red'
 };
 
 const darkTheme = {
   body: '#37474F',
-  text: '#DEE4E7'
+  text: 'blue'
 };
 
 const Container = styled.div`
@@ -24,8 +24,12 @@ const Container = styled.div`
   position: fixed;
   background-color: ${props => props.theme.body};
 
-  div {
+  div > div {
     color: ${props => props.theme.text };
+  }
+
+  div > div > label > div {
+    background: ${props => props.theme.text };
   }
 `;
 
