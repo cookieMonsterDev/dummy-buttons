@@ -6,15 +6,18 @@ export interface WrapperProps {
   handleTheme?: () => void;
 };
 
-const lightTheme = {
-  body: '#DEE4E7',
-  text: 'red'
-};
+const themeMode = {
 
-const darkTheme = {
-  body: '#37474F',
-  text: 'blue'
-};
+  lightTheme: {
+    body: '#DEE4E7',
+    text: 'red'
+  },
+
+  darkTheme: {
+    body: '#37474F',
+    text: 'blue'
+  }
+}
 
 const Container = styled.div`
   width: 100%;
@@ -35,10 +38,15 @@ const Container = styled.div`
 
 export const Wrapper = (props: WrapperProps) => {
 
-  const [theme, setTheme] = useState(lightTheme)
+  const [theme, setTheme] = useState(themeMode.lightTheme)
 
   const handleTheme = () => {
-    theme === lightTheme ? setTheme(darkTheme): setTheme(lightTheme)
+    if (theme === themeMode.lightTheme) {
+      localStorage.setItem('theme', JSON.stringify(themeMode.darkTheme));
+      return setTheme(themeMode.darkTheme)
+    }
+    localStorage.setItem('theme', JSON.stringify(themeMode.lightTheme));
+    return setTheme(themeMode.lightTheme);
   }
 
   const childrenWithProps = React.Children.map(props.children, child => {
