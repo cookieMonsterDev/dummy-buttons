@@ -11,12 +11,24 @@ const Container = styled.div`
 `;
 
 export const ToggleMenu = (props: WrapperProps) => {
-  
   return (
       <Container>
-          <Toggle toggleText={"Dark mode"} onChange={() => {props.handleTheme?.()}}/>
-          <Toggle toggleText={"Disable main button"} onChange={() => {}}/>
-          <Toggle toggleText={"Sth"} onChange={() => {console.log("Sth")}}/>
+
+          <Toggle 
+            toggleText={"Dark mode"} 
+            toggleId={"1"} 
+            onChange={() => {props.handleTheme?.()}}/>
+          
+          <Toggle 
+            toggleText={"Disable main button"} 
+            toggleId={"2"} 
+            onChange={() => {}}/>
+          
+          <Toggle 
+            toggleText={"Sth"} 
+            toggleId={"3"} 
+            onChange={() => {console.log("Sth")}}/>
+
       </Container>
   );
 };

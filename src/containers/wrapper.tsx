@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import React, { useState } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { setDarkModeLocalStorage } from '../typescript/setDataLocalStorage'
 
 export interface WrapperProps {
   children?: React.ReactNode;
   handleTheme?: () => void;
 };
 
-const themeMode = {
+export const themeMode = {
 
   lightTheme: {
     body: '#DEE4E7',
@@ -42,10 +43,10 @@ export const Wrapper = (props: WrapperProps) => {
 
   const handleTheme = () => {
     if (theme === themeMode.lightTheme) {
-      localStorage.setItem('theme', JSON.stringify(themeMode.darkTheme));
+      setDarkModeLocalStorage(theme);
       return setTheme(themeMode.darkTheme)
     }
-    localStorage.setItem('theme', JSON.stringify(themeMode.lightTheme));
+    setDarkModeLocalStorage(theme);
     return setTheme(themeMode.lightTheme);
   }
 
