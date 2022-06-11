@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper, WrapperProps } from './containers/wrapper';
+import { Wrapper } from './containers/wrapper';
 import { Button } from './components/buttons/button';
 import { ToggleMenu } from './components/settings/settings';
  

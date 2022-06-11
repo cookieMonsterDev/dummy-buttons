@@ -1,32 +1,43 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 export interface WrapperProps {
   children?: React.ReactNode;
-  color?: string;
   handleTheme?: () => void;
 };
 
-const Container = styled.div<WrapperProps>`
+const lightTheme = {
+  body: '#DEE4E7',
+  text: '#37474F'
+};
+
+const darkTheme = {
+  body: '#37474F',
+  text: '#DEE4E7'
+};
+
+const Container = styled.div`
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   position: fixed;
-  background-color: ${props => props.color }
-`
+  background-color: ${props => props.theme.body};
+
+  div {
+    color: ${props => props.theme.text };
+  }
+`;
 
 export const Wrapper = (props: WrapperProps) => {
 
-  const [theme, setTheme] = useState("black")
+  const [theme, setTheme] = useState(lightTheme)
 
   const handleTheme = () => {
-    theme === "black" ? setTheme("white"): setTheme("black")
+    theme === lightTheme ? setTheme(darkTheme): setTheme(lightTheme)
   }
 
   const childrenWithProps = React.Children.map(props.children, child => {
-    // Checking isValidElement is the safe way and avoids a typescript
-    // error too.
     if (React.isValidElement(child)) {
       return React.cloneElement(child, { handleTheme });
     }
@@ -34,8 +45,10 @@ export const Wrapper = (props: WrapperProps) => {
   });
 
   return(
-    <Container color={theme} > 
-      { childrenWithProps }
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container> 
+        { childrenWithProps }
+      </Container>
+    </ThemeProvider>
   );
-  }
+}
