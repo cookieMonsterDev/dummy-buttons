@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { setDarkModeLocalStorage, getThemeMode } from '../typescript/darkMode/setDataLocalStorage';
-import { services } from '../typescript/init'
+import { setDarkModeLocalStorage, getThemeMode } from '../typescript/darkMode/darkMode';
 
 export interface WrapperProps {
   children?: React.ReactNode;
@@ -40,7 +39,7 @@ const Container = styled.div`
 
 export const Wrapper = (props: WrapperProps) => {
 
-  const [theme, setTheme] = useState(getThemeMode())
+  const [theme, setTheme] = useState(getThemeMode)
 
   const handleTheme = () => {
     if (theme === themeMode.lightTheme) {

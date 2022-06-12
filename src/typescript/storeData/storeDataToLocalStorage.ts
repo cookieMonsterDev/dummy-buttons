@@ -1,9 +1,8 @@
-const setLocalSorageData = (key: string, value: any) => {
+
+export const setLocalSorageData = (key: string, value: any): void => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-const getLocalSorageData = (key: string) => {
-  localStorage.getItem(key);
+export const getLocalSorageData = (key: string): string | null => {
+  return localStorage.getItem(key);
 };
-
-export default setLocalSorageData; getLocalSorageData;
