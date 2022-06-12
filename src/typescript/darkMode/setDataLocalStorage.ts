@@ -1,4 +1,4 @@
-import { themeMode } from "../containers/wrapper"
+import { themeMode } from "../../containers/wrapper"
 
 export const setDarkModeLocalStorage = (theme: object) => {
   if (theme === themeMode.lightTheme) {

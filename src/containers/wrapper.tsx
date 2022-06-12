@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { setDarkModeLocalStorage, getThemeMode } from '../typescript/setDataLocalStorage'
+import { setDarkModeLocalStorage, getThemeMode } from '../typescript/darkMode/setDataLocalStorage';
+import { services } from '../typescript/init'
 
 export interface WrapperProps {
   children?: React.ReactNode;
