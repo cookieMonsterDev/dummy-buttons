@@ -6,3 +6,12 @@ export const setDarkModeLocalStorage = (theme: object) => {
   }
   return localStorage.setItem('isDarkModeActive', JSON.stringify(false))
 }
+
+export const getThemeMode = () => {
+  let value = localStorage.getItem('isDarkModeActive');
+
+  if (value === 'true') {
+    return themeMode.darkTheme
+  }
+  return themeMode.lightTheme
+}
