@@ -10,7 +10,6 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: white;
 `
 
 const Label = styled.label`

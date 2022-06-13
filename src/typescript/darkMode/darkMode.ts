@@ -1,10 +1,6 @@
 import { setLocalSorageData, getLocalSorageData } from '../storeData/storeDataToLocalStorage';
-import { themeMode } from '../../containers/wrapper';
-
-interface Theme {
-  body: string;
-  text: string;
-};
+import { darkTheme } from '../../styles/darkTheme';
+import { lightTheme } from '../../styles/lightTheme'; 
 
 const darkModeKey = 'isDarkModeActive';
 
@@ -18,16 +14,16 @@ export const setDefaultMode = () => {
 };
 
 export const setDarkModeLocalStorage = (theme: object) => {
-  theme === themeMode.lightTheme 
+  theme === lightTheme 
   ? setLocalSorageData(darkModeKey, true)
   : setLocalSorageData(darkModeKey, false)
 };
 
-export const getThemeMode = (): Theme => {
-  const value =  localStorage.getItem(darkModeKey);
+export const getThemeMode = (): object => {
+  const value = localStorage.getItem(darkModeKey);
   
   if ( value === 'true' ) {
-    return themeMode.darkTheme
+    return darkTheme
   }
-  return themeMode.lightTheme 
+  return lightTheme 
 };
