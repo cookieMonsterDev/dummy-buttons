@@ -10,13 +10,17 @@ export interface WrapperProps {
 export const themeMode = {
 
   lightTheme: {
+    primary: '#f8f8ff',
+    secondary: '#9d9d9d',
     body: '#DEE4E7',
-    text: 'red'
+    text: '#212121'
   },
 
   darkTheme: {
+    primary: '#141414',
+    secondary: '#9d9d9d',
     body: '#37474F',
-    text: 'blue'
+    text: '#deb100'
   }
 }
 
@@ -26,14 +30,10 @@ const Container = styled.div`
   top: 0;
   left: 0;
   position: fixed;
-  background-color: ${props => props.theme.body};
+  background-color: ${props => props.theme.primary};
 
   div > div {
     color: ${props => props.theme.text };
-  }
-
-  div > div > label > div {
-    background: ${props => props.theme.text };
   }
 `;
 
