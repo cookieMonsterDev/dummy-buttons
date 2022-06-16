@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { Toggle } from "../buttons/toggle";
-import { WrapperProps } from "../../containers/wrapper";
+
+interface ToggleMenuProps {
+  handleTheme?: () => void;
+}
 
 const Container = styled.div`
   width: 25em;
@@ -10,13 +13,25 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-export const ToggleMenu = (props: WrapperProps) => {
-  
+export const ToggleMenu = (props: ToggleMenuProps) => {
   return (
       <Container>
-          <Toggle toggleText={"Dark mode"} onChange={() => {props.handleTheme?.()}}/>
-          <Toggle toggleText={"Disable main button"} onChange={() => {}}/>
-          <Toggle toggleText={"Sth"} onChange={() => {console.log("Sth")}}/>
+
+          <Toggle 
+            toggleText={"Dark mode"} 
+            toggleId={"1"} 
+            onChange={() => {props.handleTheme?.()}}/>
+          
+          <Toggle 
+            toggleText={"Disable main button"} 
+            toggleId={"2"} 
+            onChange={() => {}}/>
+          
+          <Toggle 
+            toggleText={"Sth"} 
+            toggleId={"3"} 
+            onChange={() => {console.log("Sth")}}/>
+
       </Container>
   );
 };

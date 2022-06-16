@@ -1,5 +1,6 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { isToggleOn } from './toggleController'
 
 const Container = styled.div`
   width: 100%;
@@ -9,7 +10,7 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: white;
+  color: ${props => props.theme.globalColor};
 `
 
 const Label = styled.label`
@@ -54,15 +55,15 @@ const Input = styled.input`
   }
 `;
 
-
 export type ToggleProps = {
+  toggleId?: string;
   toggleText?: string;
   onChange?: () => void;
 };
 
 export const Toggle = (props: ToggleProps) => {
 
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(isToggleOn(props));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
