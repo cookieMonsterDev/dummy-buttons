@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { Toggle } from "../buttons/toggle";
-import { WrapperProps } from "../../containers/wrapper";
+
+interface ToggleMenuProps {
+  handleTheme?: () => void;
+}
 
 const Container = styled.div`
   width: 25em;
@@ -10,7 +13,7 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-export const ToggleMenu = (props: WrapperProps) => {
+export const ToggleMenu = (props: ToggleMenuProps) => {
   return (
       <Container>
 

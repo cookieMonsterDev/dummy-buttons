@@ -3,27 +3,19 @@ import { darkTheme } from '../../styles/darkTheme';
 import { lightTheme } from '../../styles/lightTheme'; 
 
 const darkModeKey = 'isDarkModeActive';
+const isOn = getLocalSorageData(darkModeKey);
 
-const value = getLocalSorageData(darkModeKey);
-
-export const setDefaultMode = () => {
-  if (value === undefined ) {
-   return setLocalSorageData(darkModeKey, false)
-  }
-  return value
+if (isOn === null) {
+  setLocalSorageData(darkModeKey, false);
 };
 
-export const setDarkModeLocalStorage = (theme: object) => {
-  theme === lightTheme 
-  ? setLocalSorageData(darkModeKey, true)
-  : setLocalSorageData(darkModeKey, false)
-};
-
-export const getThemeMode = (): object => {
-  const value = localStorage.getItem(darkModeKey);
-  
-  if ( value === 'true' ) {
-    return darkTheme
+export const darkModeController = () => {
+  const isOn = getLocalSorageData(darkModeKey);
+   
+  if (isOn === 'false') {
+    setLocalSorageData(darkModeKey, true);
+    return darkTheme;
   }
-  return lightTheme 
+  setLocalSorageData(darkModeKey, false);
+  return lightTheme;
 };
