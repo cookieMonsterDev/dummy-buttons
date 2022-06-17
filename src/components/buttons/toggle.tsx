@@ -10,7 +10,9 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: ${props => props.theme.globalColor};
+  color: ${props => props.theme.textColorPrimary};
+  font-size: 1.4em;
+  font-weight: 600;
 `
 
 const Label = styled.label`
@@ -23,7 +25,7 @@ const Switch = styled.div`
   position: relative;
   width: 60px;
   height: 28px;
-  background: #b3b3b3;
+  background: ${props => props.theme.toggleBackground};
   border-radius: 32px;
   padding: 4px;
   transition: 300ms all;
@@ -37,7 +39,7 @@ const Switch = styled.div`
     border-radius: 35px;
     top: 50%;
     left: 4px;
-    background: white;
+    background: #FFFFFF;
     transform: translate(0, -50%);
   }
 `;
@@ -47,10 +49,11 @@ const Input = styled.input`
   position: absolute;
 
   &:checked + ${Switch} {
-    background: green;
+    background: ${props => props.theme.toggleBackgroundActive};
 
     &:before {
       transform: translate(32px, -50%);
+      background: #FFFFFF;
     }
   }
 `;

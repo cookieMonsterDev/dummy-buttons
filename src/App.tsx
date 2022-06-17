@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
+// components
 import { Wrapper } from './containers/wrapper';
 import { Button } from './components/buttons/button';
 import { ToggleMenu } from './components/settings/settings';
@@ -16,7 +17,6 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Wrapper>
-      {/* <button onClick={handleTheme}>test</button> */}
         <Button />
         <ToggleMenu handleTheme={handleTheme}/>
       </Wrapper> 
