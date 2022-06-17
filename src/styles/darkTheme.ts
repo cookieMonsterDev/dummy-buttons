@@ -1,9 +1,9 @@
-interface darkTheme {
+interface DarkTheme {
   globalColor: string;
   globalBackground: string;
 };
 
-export const darkTheme = {
+export const DarkTheme = {
   globalColor: 'red',
   globalBackground: 'black',
 };

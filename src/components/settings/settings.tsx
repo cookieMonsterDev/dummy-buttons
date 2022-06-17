@@ -3,6 +3,8 @@ import { Toggle } from "../buttons/toggle";
 
 interface ToggleMenuProps {
   handleTheme?: () => void;
+  disableButton?: () => void;
+  changeAction?: () => void;
 }
 
 const Container = styled.div`
