@@ -8,7 +8,7 @@ import { darkModeController } from './typescript/darkMode/darkMode';
  
 const App = () => {
 
-  const [theme, setTheme] = useState(darkModeController())
+  const [theme, setTheme] = useState(() => {return darkModeController()})
 
   const handleTheme = () => {
     return setTheme(darkModeController())
