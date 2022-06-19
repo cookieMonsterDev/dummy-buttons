@@ -34,7 +34,7 @@ const Switch = styled.div`
   transition: 300ms all;
 
   &:before {
-    transition: 300ms all;
+    transition: 400ms all;
     content: "";
     position: absolute;
     width: 28px;

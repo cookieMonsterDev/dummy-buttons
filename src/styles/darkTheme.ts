@@ -18,8 +18,8 @@ export const DarkTheme = {
   textColorSecondary: '#FF9500',
   toggleBackground: '#B3B3B3',
   toggleBackgroundActive: '#FF9500',
-  settingsButtonColor: '#B3B3B3',
-  settingsButtonColorActive: '',
-  settingsButtonBackground: '',
-  settingsButtonBackgroundActive: '',
+  settingsButtonColor: '#FF9500',
+  settingsButtonColorActive: '#000000',
+  settingsButtonBackground: '#000000',
+  settingsButtonBackgroundActive: '#FF9500',
 };

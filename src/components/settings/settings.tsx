@@ -8,6 +8,21 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  transition: 0.5s;
+`;
+
+const SettingsButtonContainer = styled.div`
+  margin: 2em;
+  transition: height 0.3s ease;
+`;
+
+const SettingsOptionsContainer = styled.div`
+  width: 25em;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transition: height 0.3s ease;
 `;
 
 const SettingsButtonlabel = styled.label`
@@ -16,10 +31,10 @@ const SettingsButtonlabel = styled.label`
 
   width: 12em; 
   height: 3em;
-  margin: 3em;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const SettingsButtonSpan = styled.span`
@@ -36,6 +51,7 @@ const SettingsButtonSpan = styled.span`
   border-color: ${props => props.theme.settingsButtonColor};
   color: ${props => props.theme.settingsButtonColor};
   background-color: ${props => props.theme.settingsButtonBackground};
+  transition: all 0.5s ease;
 `;
 
 const SettingsButtonInput = styled.input`
@@ -45,6 +61,7 @@ const SettingsButtonInput = styled.input`
   &:checked + ${SettingsButtonSpan} {
     color: ${props => props.theme.settingsButtonColorActive};
     background-color: ${props => props.theme.settingsButtonBackgroundActive};
+    transition: all 0.5s ease;
   }
 `;
 
@@ -57,14 +74,21 @@ interface SettingsProps {
 export const SettingsMenu = (props: SettingsProps) => {
 
   const [extended, setExtended] = useState(false);
+
+  // const handleExtend = () => {
+  //   extended === 'none' ? setExtended('flex') : setExtended('none')
+  // };
   
   if (extended) {
     return (
       <Container>
-        <SettingsButtonlabel>
-          <SettingsButtonInput type="checkbox" onChange={() => setExtended(!extended)} />
-          <SettingsButtonSpan>SETTINGS</SettingsButtonSpan>
-        </SettingsButtonlabel> 
+        <SettingsButtonContainer>
+          <SettingsButtonlabel>
+            <SettingsButtonInput type="checkbox" onChange={() => setExtended(!extended)} />
+            <SettingsButtonSpan>SETTINGS</SettingsButtonSpan>
+          </SettingsButtonlabel> 
+        </SettingsButtonContainer>
+        <SettingsOptionsContainer>
           <Toggle 
             toggleText={"Dark mode"} 
             toggleId={"1"} 
@@ -77,15 +101,18 @@ export const SettingsMenu = (props: SettingsProps) => {
             toggleText={"Sth"} 
             toggleId={"3"} 
             onChange={() => {console.log("Sth")}}/>
+        </SettingsOptionsContainer>
       </Container>
     );
   }
   else return (
     <Container>
-      <SettingsButtonlabel>
-          <SettingsButtonInput type="checkbox" onChange={() => setExtended(!extended)} />
-          <SettingsButtonSpan>SETTINGS</SettingsButtonSpan>
-      </SettingsButtonlabel> 
+      <SettingsButtonContainer>
+          <SettingsButtonlabel>
+            <SettingsButtonInput type="checkbox" onChange={() => setExtended(!extended)} />
+            <SettingsButtonSpan>SETTINGS</SettingsButtonSpan>
+          </SettingsButtonlabel> 
+      </SettingsButtonContainer>
     </Container>
   );
 };

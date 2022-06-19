@@ -11,7 +11,7 @@ const App = () => {
   const [theme, setTheme] = useState(() => {return darkModeController()})
 
   const handleTheme = () => {
-    return setTheme(darkModeController())
+    return setTheme(darkModeController());
   }
 
   return (
