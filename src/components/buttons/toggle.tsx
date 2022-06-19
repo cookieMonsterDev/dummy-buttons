@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { isToggleOn } from './toggleController'
 
 const Container = styled.div`
+  
+  -webkit-user-select:none;
+
   width: 100%;
   margin: 0.3em 0 0.3em 0;
   padding: auto;

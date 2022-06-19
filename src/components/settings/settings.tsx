@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { Toggle } from "../buttons/toggle";
 
@@ -11,6 +11,9 @@ const Container = styled.div`
 `;
 
 const SettingsButtonlabel = styled.label`
+
+  -webkit-user-select:none;
+
   width: 12em; 
   height: 3em;
   margin: 3em;
@@ -30,9 +33,9 @@ const SettingsButtonSpan = styled.span`
   border-style: solid;
   border-width: 0.2em;
   border-radius: 4em;
-  border-color: #B3B3B3;
-  color: red;
-  background-color: #737373;
+  border-color: ${props => props.theme.settingsButtonColor};
+  color: ${props => props.theme.settingsButtonColor};
+  background-color: ${props => props.theme.settingsButtonBackground};
 `;
 
 const SettingsButtonInput = styled.input`
@@ -40,7 +43,8 @@ const SettingsButtonInput = styled.input`
   display: none;
 
   &:checked + ${SettingsButtonSpan} {
-    color: black;
+    color: ${props => props.theme.settingsButtonColorActive};
+    background-color: ${props => props.theme.settingsButtonBackgroundActive};
   }
 `;
 
@@ -53,8 +57,6 @@ interface SettingsProps {
 export const SettingsMenu = (props: SettingsProps) => {
 
   const [extended, setExtended] = useState(false);
-
-  useEffect(() => {}, []);
   
   if (extended) {
     return (
