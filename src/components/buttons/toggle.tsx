@@ -58,7 +58,7 @@ const Input = styled.input`
   }
 `;
 
-export type ToggleProps = {
+export interface ToggleProps {
   toggleId?: string;
   toggleText?: string;
   onChange?: () => void;

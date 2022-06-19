@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 // components
 import { Wrapper } from './containers/wrapper';
 import { Button } from './components/buttons/button';
-import { ToggleMenu } from './components/settings/settings';
+import { SettingsMenu } from './components/settings/settings';
 import { darkModeController } from './typescript/darkMode/darkMode';
  
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Wrapper>
         <Button />
-        <ToggleMenu handleTheme={handleTheme}/>
+        <SettingsMenu handleTheme={handleTheme}/>
       </Wrapper> 
     </ThemeProvider>
   )

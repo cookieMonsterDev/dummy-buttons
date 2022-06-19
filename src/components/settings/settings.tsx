@@ -1,12 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Toggle } from "../buttons/toggle";
-
-interface ToggleMenuProps {
-  handleTheme?: () => void;
-  disableButton?: () => void;
-  changeAction?: () => void;
-}
 
 const Container = styled.div`
   width: 25em;
@@ -21,14 +15,8 @@ const SettingsButtonlabel = styled.label`
   height: 3em;
   margin: 3em;
   display: flex;
+  align-items: center;
   justify-content: center;
-  background-color: #B3B3B3;
-  border-radius: 4px;
-`;
-
-const SettingsButtonInput = styled.input`
-  position: absolute;
-  display: none;
 `;
 
 const SettingsButtonSpan = styled.span`
@@ -39,9 +27,30 @@ const SettingsButtonSpan = styled.span`
   justify-content: center;
   font-size: 1.5em;
   font-weight: 600;
+  border-style: solid;
+  border-width: 0.2em;
+  border-radius: 4em;
+  border-color: #B3B3B3;
+  color: red;
+  background-color: #737373;
 `;
 
-export const ToggleMenu = (props: ToggleMenuProps) => {
+const SettingsButtonInput = styled.input`
+  position: absolute;
+  display: none;
+
+  &:checked + ${SettingsButtonSpan} {
+    color: black;
+  }
+`;
+
+interface SettingsProps {
+  handleTheme?: () => void;
+  disableButton?: () => void;
+  changeAction?: () => void;
+}
+
+export const SettingsMenu = (props: SettingsProps) => {
 
   const [extended, setExtended] = useState(false);
 
