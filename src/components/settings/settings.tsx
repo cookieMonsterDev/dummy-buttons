@@ -43,6 +43,7 @@ const SettingsButtonSpan = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Avenir, Arial, sans-serif;
   font-size: 1.5em;
   font-weight: 600;
   border-style: solid;
@@ -90,7 +91,7 @@ export const SettingsMenu = (props: SettingsProps) => {
             toggleId={"1"} 
             onChange={() => {props.handleTheme?.()}}/>
           <Toggle 
-            toggleText={"Disable main button"} 
+            toggleText={"Disable button"} 
             toggleId={"2"} 
             onChange={() => {}}/>
           <Toggle 

@@ -14,6 +14,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   color: ${props => props.theme.textColorPrimary};
+  font-family: Avenir, Arial, sans-serif;
   font-size: 1.4em;
   font-weight: 600;
 `
