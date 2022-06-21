@@ -1,38 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.button`
-  width: 25em;
-  height: 25em;
-  border-radius: 50%;
-  justify-content: center;
-  align-Items: center;
-`
-const MainButtonContainer = styled.div`
+const Container = styled.div`
   margin: auto;
-  width: 25em;
-  height: 25em;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  width: 26em;
+  height: 26em;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
+const MainButton = styled.button`
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-Items: center;
+
+  border-radius: 50%;
+  border-style: outset;
+  border-color: #808080;
+  border-width: 1em;
+`
+
 export type ButtonProps = {
-  // onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  children?: React.ReactNode;
-  color?: 'primary' | 'secondary';
   disabled?: boolean;
-  doSomething?: () => void;
 }
 
 export const Button = (props: ButtonProps) => {
 
   return (
-    <MainButtonContainer>
-      <Container>
+    <Container>
+      <MainButton>
         <>test</>
-      </Container>
-    </MainButtonContainer>
+      </MainButton>
+    </Container>
   );
 };
 
