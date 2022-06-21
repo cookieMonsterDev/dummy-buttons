@@ -5,6 +5,10 @@ interface DarkTheme {
   textColorSecondary: string;
   toggleBackground: string;
   toggleBackgroundActive: string;
+  settingsButtonColor: string;
+  settingsButtonColorActive: string;
+  settingsButtonBackground: string;
+  settingsButtonBackgroundActive: string;
 };
 
 export const DarkTheme = {
@@ -14,4 +18,8 @@ export const DarkTheme = {
   textColorSecondary: '#FF9500',
   toggleBackground: '#B3B3B3',
   toggleBackgroundActive: '#FF9500',
+  settingsButtonColor: '#FF9500',
+  settingsButtonColorActive: '#000000',
+  settingsButtonBackground: '#000000',
+  settingsButtonBackgroundActive: '#FF9500',
 };

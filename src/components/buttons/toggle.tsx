@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { isToggleOn } from './toggleController'
 
 const Container = styled.div`
+  
+  -webkit-user-select:none;
+
   width: 100%;
   margin: 0.3em 0 0.3em 0;
   padding: auto;
@@ -31,7 +34,7 @@ const Switch = styled.div`
   transition: 300ms all;
 
   &:before {
-    transition: 300ms all;
+    transition: 400ms all;
     content: "";
     position: absolute;
     width: 28px;
@@ -58,7 +61,7 @@ const Input = styled.input`
   }
 `;
 
-export type ToggleProps = {
+export interface ToggleProps {
   toggleId?: string;
   toggleText?: string;
   onChange?: () => void;

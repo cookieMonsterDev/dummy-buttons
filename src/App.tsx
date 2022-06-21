@@ -3,22 +3,22 @@ import { ThemeProvider } from 'styled-components';
 // components
 import { Wrapper } from './containers/wrapper';
 import { Button } from './components/buttons/button';
-import { ToggleMenu } from './components/settings/settings';
+import { SettingsMenu } from './components/settings/settings';
 import { darkModeController } from './typescript/darkMode/darkMode';
  
 const App = () => {
 
-  const [theme, setTheme] = useState(darkModeController())
+  const [theme, setTheme] = useState(() => {return darkModeController()})
 
   const handleTheme = () => {
-    return setTheme(darkModeController())
+    return setTheme(darkModeController());
   }
 
   return (
     <ThemeProvider theme={theme}>
       <Wrapper>
         <Button />
-        <ToggleMenu handleTheme={handleTheme}/>
+        <SettingsMenu handleTheme={handleTheme}/>
       </Wrapper> 
     </ThemeProvider>
   )

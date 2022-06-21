@@ -12,6 +12,7 @@ const Container = styled.div`
   left: 0;
   position: fixed;
   background-color: ${props => props.theme.globalBackground};
+  transition: all 1.2s ease;
 `;
 
 export const Wrapper = (props: WrapperProps) => {
