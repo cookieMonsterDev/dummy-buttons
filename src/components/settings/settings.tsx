@@ -74,10 +74,6 @@ interface SettingsProps {
 export const SettingsMenu = (props: SettingsProps) => {
 
   const [extended, setExtended] = useState(false);
-
-  // const handleExtend = () => {
-  //   extended === 'none' ? setExtended('flex') : setExtended('none')
-  // };
   
   if (extended) {
     return (
