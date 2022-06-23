@@ -5,8 +5,8 @@ const Container = styled.div`
   margin: auto;
   margin-top: 3em;
   margin-bottom: 3em;
-  width: 26em;
-  height: 26em;
+  width: 22em;
+  height: 22em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,8 +25,15 @@ const MainButton = styled.button`
   border-radius: 50%;
   border: none;
   background-color: red;
-  box-shadow: 0 8px 0 rgb(183,9,0), 
+  box-shadow: 0 1em 0 rgb(183,9,0), 
   0 15px 20px rgba(0,0,0,.35);
+
+  &:active {
+    transform: translateY(1em);
+    box-shadow: 0 0 1em rgb(183,0,0), 
+    0 8px 6px rgba(0,0,0,.45);
+    transition: 300ms all
+  }
 `
 
 const ButtonText = styled.span`
@@ -47,7 +54,7 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <Container>
-      <MainButton>
+      <MainButton onClick={()=>{alert("HI mom!")}}>
         <ButtonText>
           big red button!
         </ButtonText>
