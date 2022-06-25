@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Toggle } from '../buttons/toggle/toggle';
-import  { myEmitter } from '../../typescript/buttonController';
+import  { buttonController } from '../../typescript/buttonController';
 
 const Container = styled.div`
   width: 25em;
@@ -94,7 +94,7 @@ export const SettingsMenu = (props: SettingsProps) => {
           <Toggle 
             toggleText={"Disable button"} 
             toggleId={2} 
-            onChange={() => {myEmitter.foo()}}/>
+            onChange={() => {buttonController.updateState()}}/>
           <Toggle 
             toggleText={"Sth"}
             toggleId={3} 

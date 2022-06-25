@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-// import {  myEmitter } from '../../../typescript/buttonController';
+import { buttonController } from '../../../typescript/buttonController';
 
 const Container = styled.div`
   margin: auto;
@@ -63,9 +63,13 @@ export type ButtonProps = {
 
 export const Button = (props: ButtonProps) => {
 
-  const [disabled, setDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(buttonController.isEnabled());
 
-  // myEmitter.on('test', console.log('worked'))
+  useEffect(() => {
+    buttonController.on('update-state', () => {setDisabled(buttonController.isEnabled())})
+
+    return () => buttonController.off('update-state', () => {setDisabled(buttonController.isEnabled())})
+  })
 
   return (
     <Container>

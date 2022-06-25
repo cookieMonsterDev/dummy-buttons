@@ -1,57 +1,32 @@
 import { getLocalSorageData, setLocalSorageData } from "./storeDataToLocalStorage";
 
-// const EventEmitter = require('events');
+const ButtonControllerEmitter = require('events');
 
-// interface ButtonController {
-//   isDisabled: boolean,
-//   localStorageValue: string,
-// };
+const LocalStorageValue = 'isButtonDisabled';
 
-// const ButtonController: ButtonController = {
-//   isDisabled: false,
-//   localStorageValue: 'isButtonDisabled',
-// };
-
-// const IsOn = getLocalSorageData(ButtonController.localStorageValue);
-
-// if (!IsOn) {
-//   setLocalSorageData(ButtonController.localStorageValue, false);
-// };
-
-// export const buttonController = () => {
-//   const IsOn = getLocalSorageData(ButtonController.localStorageValue);
-   
-//   if (IsOn === 'false') {
-//     setLocalSorageData(ButtonController.localStorageValue, true);
-//   }
-//   setLocalSorageData(ButtonController.localStorageValue, false);
-// };
-
-// class MyEmitter extends EventEmitter {
-//   buttonController = () => {
-//     this.emit('event');
-//   };
-// }
-
-// export const myEmitter = new MyEmitter();
-
-// export const IsEnabled = () => {
-//   const IsOn = getLocalSorageData(ButtonController.localStorageValue);
+class ButtonController extends ButtonControllerEmitter {
   
-//   if (IsOn === 'true') {
-//     return true;
-//   }
-//   return false
-// }
+  // Change button state in local storage
+  updateState = () => {
+    const IsOn = getLocalSorageData(LocalStorageValue);
 
+    if (!IsOn) {
+      return setLocalSorageData(LocalStorageValue, true);
+    } 
+    else if (IsOn === 'false') {
+      setLocalSorageData(LocalStorageValue, true);
+      return this.emit('update-state');
+    }
+    setLocalSorageData(LocalStorageValue, false);
+    return this.emit('update-state');
+  };
 
-const EventEmitter = require('events');
+  // Return button state
+  isEnabled = () => {
+    const IsOn = getLocalSorageData(LocalStorageValue);
+  
+    return IsOn === 'true' ? true : false;
+  };
+};
 
-class MyEmitter extends EventEmitter {
-  foo() {
-    this.emit('test');
-  }
-}
-export const myEmitter = new MyEmitter();
-
-myEmitter.on('test', () => console.log('done'));
+export const buttonController = new ButtonController();
