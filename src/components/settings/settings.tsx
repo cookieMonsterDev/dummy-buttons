@@ -1,6 +1,7 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { Toggle } from "../buttons/toggle";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { Toggle } from '../buttons/toggle/toggle';
+import  { buttonController } from '../../typescript/buttonController';
 
 const Container = styled.div`
   width: 25em;
@@ -43,6 +44,7 @@ const SettingsButtonSpan = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Avenir, Arial, sans-serif;
   font-size: 1.5em;
   font-weight: 600;
   border-style: solid;
@@ -87,15 +89,15 @@ export const SettingsMenu = (props: SettingsProps) => {
         <SettingsOptionsContainer>
           <Toggle 
             toggleText={"Dark mode"} 
-            toggleId={"1"} 
+            toggleId={1} 
             onChange={() => {props.handleTheme?.()}}/>
           <Toggle 
-            toggleText={"Disable main button"} 
-            toggleId={"2"} 
-            onChange={() => {}}/>
+            toggleText={"Disable button"} 
+            toggleId={2} 
+            onChange={() => {buttonController.updateState()}}/>
           <Toggle 
-            toggleText={"Sth"} 
-            toggleId={"3"} 
+            toggleText={"Sth"}
+            toggleId={3} 
             onChange={() => {console.log("Sth")}}/>
         </SettingsOptionsContainer>
       </Container>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { isToggleOn } from './toggleController'
+import { isToggleOn } from '../../../typescript/toggleController'
 
 const Container = styled.div`
   
@@ -14,6 +14,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   color: ${props => props.theme.textColorPrimary};
+  font-family: Avenir, Arial, sans-serif;
   font-size: 1.4em;
   font-weight: 600;
 `
@@ -62,7 +63,7 @@ const Input = styled.input`
 `;
 
 export interface ToggleProps {
-  toggleId?: string;
+  toggleId?: number;
   toggleText?: string;
   onChange?: () => void;
 };
