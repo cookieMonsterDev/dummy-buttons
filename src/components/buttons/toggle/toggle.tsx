@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { isToggleOn } from './toggleController'
+import { isToggleOn } from '../../../typescript/toggleController'
 
 const Container = styled.div`
   
@@ -63,7 +63,7 @@ const Input = styled.input`
 `;
 
 export interface ToggleProps {
-  toggleId?: string;
+  toggleId?: number;
   toggleText?: string;
   onChange?: () => void;
 };

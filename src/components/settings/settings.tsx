@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Toggle } from '../buttons/toggle/toggle';
-import  { buttonController } from '../buttons/button/buttonController';
+import  { myEmitter } from '../../typescript/buttonController';
 
 const Container = styled.div`
   width: 25em;
@@ -89,15 +89,15 @@ export const SettingsMenu = (props: SettingsProps) => {
         <SettingsOptionsContainer>
           <Toggle 
             toggleText={"Dark mode"} 
-            toggleId={"1"} 
+            toggleId={1} 
             onChange={() => {props.handleTheme?.()}}/>
           <Toggle 
             toggleText={"Disable button"} 
-            toggleId={"2"} 
-            onChange={() => {buttonController()}}/>
+            toggleId={2} 
+            onChange={() => {myEmitter.foo()}}/>
           <Toggle 
-            toggleText={"Sth"} 
-            toggleId={"3"} 
+            toggleText={"Sth"}
+            toggleId={3} 
             onChange={() => {console.log("Sth")}}/>
         </SettingsOptionsContainer>
       </Container>

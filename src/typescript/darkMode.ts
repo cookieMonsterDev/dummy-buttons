@@ -1,6 +1,6 @@
-import { setLocalSorageData, getLocalSorageData } from '../storeData/storeDataToLocalStorage';
-import { DarkTheme } from '../../styles/darkTheme';
-import { LightTheme } from '../../styles/lightTheme'; 
+import { setLocalSorageData, getLocalSorageData } from './storeDataToLocalStorage';
+import { DarkTheme } from '../styles/darkTheme';
+import { LightTheme } from '../styles/lightTheme'; 
 
 const DarkModeKey = 'isDarkModeActive';
 const IsOn = getLocalSorageData(DarkModeKey);
@@ -19,3 +19,4 @@ export const darkModeController = () => {
   setLocalSorageData(DarkModeKey, false);
   return LightTheme;
 };
+

@@ -1,5 +1,5 @@
-import { ToggleProps } from './toggle';
-import { getLocalSorageData } from '../../../typescript/storeData/storeDataToLocalStorage';
+import { ToggleProps } from '../components/buttons/toggle/toggle';
+import { getLocalSorageData } from './storeDataToLocalStorage';
 
 interface LocalStorageData {
   DarkModeKey: string,
@@ -12,10 +12,10 @@ const Data: LocalStorageData = {
 };
 
 export const isToggleOn = (props: ToggleProps): boolean => {
-  if ( props.toggleId === '1') {
+  if ( props.toggleId === 1) {
     return getLocalSorageData(Data.DarkModeKey) === 'true' ? true : false
   }
-  else if ( props.toggleId === '2') {
+  else if ( props.toggleId === 2) {
     return getLocalSorageData(Data.IsButtonDisabled) === 'true' ? true : false
   }
   return false

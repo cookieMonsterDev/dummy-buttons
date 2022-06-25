@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { Wrapper } from './containers/wrapper';
 import { Button } from './components/buttons/button/button';
 import { SettingsMenu } from './components/settings/settings';
-import { darkModeController } from './typescript/darkMode/darkMode';
+import { darkModeController } from './typescript/darkMode';
  
 const App = () => {
 
