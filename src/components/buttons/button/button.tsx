@@ -68,8 +68,8 @@ export const Button = (props: ButtonProps) => {
   useEffect(() => {
     buttonController.on('update-state', () => {setDisabled(buttonController.isEnabled())})
 
-    return () => buttonController.off('update-state', () => {setDisabled(buttonController.isEnabled())})
-  })
+    return () => buttonController.off('update-state', () => {setDisabled(buttonController.isEnabled())});
+  }, [])
 
   return (
     <Container>
