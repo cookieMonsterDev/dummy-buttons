@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { buttonController } from './buttonController';
 
 const Container = styled.div`
   margin: auto;
@@ -24,15 +25,25 @@ const MainButton = styled.button`
 
   border-radius: 50%;
   border: none;
-  background-color: red;
-  box-shadow: 0 1em 0 rgb(183,9,0), 
+  background-color: #FF0000;
+  box-shadow: 0 1em 0 rgb(183, 9, 0), 
   0 15px 20px rgba(0,0,0,.35);
 
   &:active {
     transform: translateY(1em);
-    box-shadow: 0 0 1em rgb(183,0,0), 
+    box-shadow: 0 0 1em rgb(183, 0, 0), 
     0 8px 6px rgba(0,0,0,.45);
     transition: 300ms all
+  }
+
+  &:disabled {
+    pointer-events: none;
+    background-color: #BDBDBD;
+    box-shadow: 0 1em 0 rgb(147,147,147);
+
+    span {
+      text-shadow: 0 4px 1px rgba(152, 152, 152, 0.8);
+    }
   }
 `
 
@@ -44,17 +55,21 @@ const ButtonText = styled.span`
   font-family: Avenir, Arial, sans-serif;
   font-weight: 900;
   font-size: 2.5em;
-`
+`;
 
 export type ButtonProps = {
   disabled?: boolean;
-}
+};
 
 export const Button = (props: ButtonProps) => {
 
+  const [disabled, setDisabled] = useState(buttonController());
+
   return (
     <Container>
-      <MainButton onClick={()=>{alert("HI mom!")}}>
+      <MainButton 
+        onClick={()=>{}}
+        disabled={disabled}>
         <ButtonText>
           big red button!
         </ButtonText>

@@ -1,6 +1,7 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { Toggle } from "../buttons/toggle";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { Toggle } from '../buttons/toggle/toggle';
+import  { buttonController } from '../buttons/button/buttonController';
 
 const Container = styled.div`
   width: 25em;
@@ -93,7 +94,7 @@ export const SettingsMenu = (props: SettingsProps) => {
           <Toggle 
             toggleText={"Disable button"} 
             toggleId={"2"} 
-            onChange={() => {}}/>
+            onChange={() => {buttonController()}}/>
           <Toggle 
             toggleText={"Sth"} 
             toggleId={"3"} 
