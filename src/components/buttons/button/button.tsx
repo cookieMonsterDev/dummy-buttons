@@ -68,6 +68,8 @@ export const Button = (props: ButtonProps) => {
 
   const start = () => {
     audio.play();
+
+    setTimeout(() => {audio.pause()}, 3000);
   };
 
   const [disabled, setDisabled] = useState(buttonController.isEnabled());

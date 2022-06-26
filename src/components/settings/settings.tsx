@@ -96,7 +96,7 @@ export const SettingsMenu = (props: SettingsProps) => {
             toggleId={2} 
             onChange={() => {buttonController.updateState()}}/>
           <Toggle 
-            toggleText={"Sth"}
+            toggleText={"Enable pop-up"}
             toggleId={3} 
             onChange={() => {console.log("Sth")}}/>
         </SettingsOptionsContainer>
