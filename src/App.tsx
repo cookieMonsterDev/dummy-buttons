@@ -5,6 +5,7 @@ import { Wrapper } from './containers/wrapper';
 import { Button } from './components/buttons/button/button';
 import { SettingsMenu } from './components/settings/settings';
 import { darkModeController } from './typescript/darkMode';
+import { Dialog } from './components/dialog/dialog';
  
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
+      <Dialog />
       <Wrapper>
         <Button />
         <SettingsMenu handleTheme={handleTheme}/>
