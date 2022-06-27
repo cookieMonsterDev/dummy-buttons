@@ -9,17 +9,22 @@ import { Dialog } from './components/dialog/dialog';
  
 const App = () => {
 
-  const [theme, setTheme] = useState(() => {return darkModeController()})
+  const [theme, setTheme] = useState(() => {return darkModeController()});
+  const [showDialog, setShowDialog] = useState(false);
+
+  const handleDialog = () => {
+    setShowDialog(!showDialog);
+  };
 
   const handleTheme = () => {
     return setTheme(darkModeController());
-  }
+  };
 
   return (
     <ThemeProvider theme={theme}>
-      <Dialog />
       <Wrapper>
-        <Button />
+        <Dialog showDialog={showDialog} setShowDialog={setShowDialog}/>
+        <Button buttonAction={handleDialog}/>
         <SettingsMenu handleTheme={handleTheme}/>
       </Wrapper> 
     </ThemeProvider>

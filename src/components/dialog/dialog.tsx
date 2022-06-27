@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -15,6 +16,9 @@ const Container = styled.div`
 const DialogMassage = styled.div`
   width: 40em;
   height: 20em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: black;
 
   border-style: solid;
@@ -23,13 +27,40 @@ const DialogMassage = styled.div`
   border-color: green;
 `;
 
-export const Dialog = () => {
- 
-  return (
+const DialogButton = styled.button`
+  width: 10em;
+  height: 3em; 
+  background-color: green;
+
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 4px 1px rgba(122,17,8,.8);
+  font-family: Avenir, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 2em;
+
+  border-style: solid;
+  border-radius: 4em;
+  border-width: 0.3em;
+  border-color: green;
+`
+
+interface DialogProps {
+  showDialog?: boolean,
+  setShowDialog?: React.Dispatch<React.SetStateAction<boolean>>
+};
+
+export const Dialog = (props: DialogProps) => {
+
+  return <>{ props.showDialog ? 
     <Container>
       <DialogMassage>
-
+        <DialogButton onClick={() => {props.setShowDialog?.(false)}}>
+          CLOSE
+        </DialogButton>
       </DialogMassage>
     </Container>
-  )
+    : null}
+    </>;  
 };

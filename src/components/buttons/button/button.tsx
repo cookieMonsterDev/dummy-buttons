@@ -59,7 +59,9 @@ const ButtonText = styled.span`
 `;
 
 export type ButtonProps = {
-  disabled?: boolean;
+  disabled?: boolean,
+  // onClick: () => void,
+  buttonAction: () => void,
 };
 
 export const Button = (props: ButtonProps) => {
@@ -82,8 +84,8 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <Container>
-      <MainButton 
-        onClick={()=>{start()}}
+      <MainButton
+        onClick={props.buttonAction}
         disabled={disabled}>
         <ButtonText>
           big red button!
