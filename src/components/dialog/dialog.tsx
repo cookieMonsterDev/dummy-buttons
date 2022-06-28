@@ -11,14 +11,16 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 `;
 
-const DialogMassage = styled.div`
+const ModalDialog = styled.div`
   width: 40em;
   height: 20em;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; 
   background-color: black;
 
   border-style: solid;
@@ -27,24 +29,47 @@ const DialogMassage = styled.div`
   border-color: green;
 `;
 
+const DialogName = styled.span`
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.6em;
+  color: white;
+
+  font-family: Avenir, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 2em;
+`;
+
+const DialogText = styled.div`
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em;
+  margin-bottom: 0.2em;
+  color: white;
+
+  text-align: center;
+  font-family: Avenir, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1em;
+`;
+
 const DialogButton = styled.button`
-  width: 10em;
-  height: 3em; 
+  width: 8em;
+  height: 1.8em;
   background-color: green;
 
   color: #FFFFFF;
   text-transform: uppercase;
   text-align: center;
-  text-shadow: 0 4px 1px rgba(122,17,8,.8);
   font-family: Avenir, Arial, sans-serif;
   font-weight: 600;
-  font-size: 2em;
+  font-size: 1.5em;
 
   border-style: solid;
   border-radius: 4em;
   border-width: 0.3em;
   border-color: green;
-`
+`;
 
 interface DialogProps {
   showDialog?: boolean,
@@ -55,11 +80,17 @@ export const Dialog = (props: DialogProps) => {
 
   return <>{ props.showDialog ? 
     <Container>
-      <DialogMassage>
+      <ModalDialog>
+        <DialogName>Modal dialog</DialogName>
+        <DialogText>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Culpa vitae nulla, aut quo nam nihil nostrum odio consequatur. 
+          Nostrum quos corporis eveniet, perspiciatis fuga repellat. 
+          Non blanditiis ducimus placeat. Perspiciatis!
+        </DialogText>
         <DialogButton onClick={() => {props.setShowDialog?.(false)}}>
           CLOSE
         </DialogButton>
-      </DialogMassage>
+      </ModalDialog>
     </Container>
     : null}
     </>;  
