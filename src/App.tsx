@@ -6,15 +6,11 @@ import { Button } from './components/buttons/button/button';
 import { SettingsMenu } from './components/settings/settings';
 import { darkModeController } from './typescript/darkMode';
 import { Dialog } from './components/dialog/dialog';
+import { dialogConttroller } from './typescript/dialogContoroller';
  
 const App = () => {
 
   const [theme, setTheme] = useState(() => {return darkModeController()});
-  const [showDialog, setShowDialog] = useState(false);
-
-  const handleDialog = () => {
-    setShowDialog(!showDialog);
-  };
 
   const handleTheme = () => {
     return setTheme(darkModeController());
@@ -23,8 +19,8 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Wrapper>
-        <Dialog showDialog={showDialog} setShowDialog={setShowDialog}/>
-        <Button buttonAction={handleDialog}/>
+        <Dialog />
+        <Button buttonAction={() => dialogConttroller.updateShown()}/>
         <SettingsMenu handleTheme={handleTheme}/>
       </Wrapper> 
     </ThemeProvider>

@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { dialogConttroller } from '../../typescript/dialogContoroller';
 
 const Container = styled.div`
   width: 100%;
@@ -72,13 +73,19 @@ const DialogButton = styled.button`
 `;
 
 interface DialogProps {
-  showDialog?: boolean,
-  setShowDialog?: React.Dispatch<React.SetStateAction<boolean>>
 };
 
 export const Dialog = (props: DialogProps) => {
 
-  return <>{ props.showDialog ? 
+  const [isDialogEnabled, setEnabled] = useState(dialogConttroller.isShown())
+
+  useEffect(() => {
+    dialogConttroller.on('shown', () => {setEnabled(dialogConttroller.isShown())});
+
+    return () => dialogConttroller.off('shown', () => {setEnabled(dialogConttroller.isShown())});
+  }, []);
+
+  return <>{ isDialogEnabled ? 
     <Container>
       <ModalDialog>
         <DialogName>Modal dialog</DialogName>
@@ -87,7 +94,7 @@ export const Dialog = (props: DialogProps) => {
           Nostrum quos corporis eveniet, perspiciatis fuga repellat. 
           Non blanditiis ducimus placeat. Perspiciatis!
         </DialogText>
-        <DialogButton onClick={() => {props.setShowDialog?.(false)}}>
+        <DialogButton onClick={() => {dialogConttroller.updateShown()}}>
           CLOSE
         </DialogButton>
       </ModalDialog>
