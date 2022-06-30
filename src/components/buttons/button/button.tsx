@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { buttonController } from '../../../typescript/buttonController';
+import sound from '../../../assets/sound.mp3';
 
 const Container = styled.div`
   margin: auto;
@@ -58,10 +59,20 @@ const ButtonText = styled.span`
 `;
 
 export type ButtonProps = {
-  disabled?: boolean;
+  disabled?: boolean,
+  // onClick: () => void,
+  buttonAction: () => void,
 };
 
 export const Button = (props: ButtonProps) => {
+
+  const audio = new Audio(sound);
+
+  const start = () => {
+    audio.play();
+
+    setTimeout(() => {audio.pause()}, 3000);
+  };
 
   const [disabled, setDisabled] = useState(buttonController.isEnabled());
 
@@ -73,8 +84,8 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <Container>
-      <MainButton 
-        onClick={()=>{}}
+      <MainButton
+        onClick={props.buttonAction}
         disabled={disabled}>
         <ButtonText>
           big red button!

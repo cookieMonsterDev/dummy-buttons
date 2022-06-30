@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { Toggle } from '../buttons/toggle/toggle';
 import  { buttonController } from '../../typescript/buttonController';
+import { dialogConttroller } from '../../typescript/dialogContoroller';
 
 const Container = styled.div`
   width: 25em;
@@ -96,9 +97,9 @@ export const SettingsMenu = (props: SettingsProps) => {
             toggleId={2} 
             onChange={() => {buttonController.updateState()}}/>
           <Toggle 
-            toggleText={"Sth"}
+            toggleText={"Enable pop-up"}
             toggleId={3} 
-            onChange={() => {console.log("Sth")}}/>
+            onChange={() => {dialogConttroller.updateSate()}}/>
         </SettingsOptionsContainer>
       </Container>
     );
