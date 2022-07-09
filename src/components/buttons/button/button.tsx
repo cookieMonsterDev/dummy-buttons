@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { buttonController } from '../../../typescript/buttonController';
-import sound from '../../../assets/sound.mp3';
 
 const Container = styled.div`
   margin: auto;
@@ -65,14 +64,6 @@ export type ButtonProps = {
 };
 
 export const Button = (props: ButtonProps) => {
-
-  const audio = new Audio(sound);
-
-  const start = () => {
-    audio.play();
-
-    setTimeout(() => {audio.pause()}, 3000);
-  };
 
   const [disabled, setDisabled] = useState(buttonController.isEnabled());
 
