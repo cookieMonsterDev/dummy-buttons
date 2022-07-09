@@ -6,6 +6,6 @@ React, so please do not don't judge too harshly.
 
 ## Getting Started
 
-  yarn add yarn
+    yarn add yarn
 
-  yarn start
+    yarn start
